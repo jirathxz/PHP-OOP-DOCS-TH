@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🐘 PHP OOP DOCS | TH
 **คู่มือการเขียนโปรแกรมเชิงวัตถุ (Object-Oriented Programming) ด้วยภาษา PHP ฉบับภาษาไทย**  
 *อิงเนื้อหาและหลักการทำงานจาก [W3Schools PHP OOP](https://www.w3schools.com/php/php_oop_what_is.asp) ครบถ้วนทั้ง 14 หัวข้อ อธิบายเข้าใจง่าย กระชับ พร้อมตัวอย่างโค้ดที่นำไปใช้ได้ทันที*
@@ -61,3 +62,6 @@
 <p align="center">
   <b>© 2026 PHP OOP DOCS TH</b> | จัดทำเพื่อการศึกษาและแบ่งปันความรู้แด่ชุมชนนักพัฒนาชาวไทย 🇹🇭
 </p>
+=======
+### PHP-OOP-DOCS-TH
+>>>>>>> b8debacd891d090296373cd1b5771af1c9f03db3
