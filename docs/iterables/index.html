@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>14. PHP Iterables | คู่มือ PHP OOP ภาษาไทย</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="https://kit.fontawesome.com/5efd6bd50f.js" crossorigin="anonymous"></script>
+  </head>
+  <body data-bs-theme="dark">
+    <!-- Dynamic Navigation -->
+    <div id="nav-placeholder" data-base="../../"></div>
+
+    <main class="container py-5">
+      <!-- Header -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-10 text-center">
+          <span class="badge bg-amber-subtle-custom mb-3 px-3 py-2 rounded-pill fw-semibold">
+            <i class="fa-brands fa-php me-1"></i> บทที่ 14 : PHP Iterables
+          </span>
+          <h1 class="display-5 fw-bolder mb-3">
+            การวนลูปข้อมูล (<span class="gradient-text">PHP Iterables</span>)
+          </h1>
+          <p class="lead text-secondary-emphasis">
+            ประเภทข้อมูลจำลอง (Pseudo-type) ที่ระบุว่าค่าข้อมูลนั้นๆ สามารถนำมาวนรอบด้วยคำสั่ง foreach() ได้อย่างถูกต้อง
+          </p>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <!-- Card 1: What is Iterable -->
+          <div class="doc-card mb-4">
+            <h2 class="h4 fw-bold mb-3 text-warning"><i class="fa-solid fa-rotate me-2"></i>Iterable คืออะไร?</h2>
+            <p class="text-secondary">
+              ใน PHP 7.1 ขึ้นไป มีการเพิ่มประเภทข้อมูลจำลอง (Pseudo-type) ที่เรียกว่า <code>iterable</code> ซึ่งหมายถึง <strong>ข้อมูลใดๆ ก็ตามที่สามารถนำมาวนลูปด้วยคำสั่ง <code>foreach()</code> ได้</strong>
+            </p>
+            <p class="text-secondary mb-0">
+              ข้อมูลที่เป็น iterable ได้แก่ <strong>Array ทั่วไป</strong> หรือ <strong>Object ที่ใช้งานอินเทอร์เฟซ Traversable / Iterator</strong> เรามักใช้คำว่า <code>iterable</code> ในการกำหนด Type Hint ในพารามิเตอร์หรือค่าคืนกลับของฟังก์ชัน เพื่อให้โค้ดรัดกุมและตรวจสอบข้อผิดพลาดได้ง่าย
+            </p>
+          </div>
+
+          <!-- Code Block -->
+          <div class="doc-card mb-5">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+              <h2 class="h5 fw-bold mb-0 text-white"><i class="fa-solid fa-code text-warning me-2"></i>ตัวอย่างการใช้ Type Hint เป็น iterable</h2>
+              <span class="badge bg-dark border border-secondary text-light">PHP 8+</span>
+            </div>
+            <div class="code-window mb-0">
+              <div class="code-header">
+                <div class="window-dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
+                <span class="text-secondary small font-monospace">iterables.php</span>
+                <button class="btn btn-sm btn-outline-secondary py-0" onclick="copyCode(this, 'code-14')"><i class="fa-regular fa-copy me-1"></i> Copy</button>
+              </div>
+              <div class="code-body" id="code-14">
+<pre class="mb-0"><code><span class="code-comment">&lt;?php</span>
+<span class="code-comment">// 1. ฟังก์ชันที่รับพารามิเตอร์เป็นประเภท iterable</span>
+<span class="code-keyword">function</span> <span class="code-func">printIterable</span>(<span class="code-keyword">iterable</span> <span class="code-var">$myIterable</span>) {
+  <span class="code-keyword">foreach</span> (<span class="code-var">$myIterable</span> <span class="code-keyword">as</span> <span class="code-var">$item</span>) {
+    <span class="code-keyword">echo</span> <span class="code-string">"👉 รายการ: <span class="code-var">{$item}</span>&lt;br&gt;"</span>;
+  }
+}
+
+<span class="code-comment">// 2. ฟังก์ชันที่กำหนดค่าคืนกลับ (Return Type) เป็น iterable</span>
+<span class="code-keyword">function</span> <span class="code-func">getIterable</span>(): <span class="code-keyword">iterable</span> {
+  <span class="code-keyword">return</span> [<span class="code-string">"Apple"</span>, <span class="code-string">"Banana"</span>, <span class="code-string">"Cherry"</span>];
+}
+
+<span class="code-comment">// ทดสอบเรียกใช้งาน</span>
+<span class="code-var">$myArray</span> = <span class="code-func">getIterable</span>();
+<span class="code-func">printIterable</span>(<span class="code-var">$myArray</span>);
+
+<span class="code-comment">/* 
+ผลลัพธ์:
+👉 รายการ: Apple
+👉 รายการ: Banana
+👉 รายการ: Cherry
+*/</span>
+<span class="code-comment">?&gt;</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Buttons -->
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary-subtle">
+            <a href="../namespaces/index.html" class="btn btn-outline-secondary px-4 py-2 rounded-pill">
+              <i class="fa-solid fa-arrow-left me-2"></i> บทที่ 13: Namespaces
+            </a>
+            <a href="../../index.php" class="btn btn-primary px-4 py-2 rounded-pill fw-medium" style="background: var(--primary-gradient); border: none;">
+              <i class="fa-solid fa-house me-2"></i> กลับหน้าหลักร้อยรวม 14 หัวข้อ
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="../../script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>5. PHP Access Modifiers | คู่มือ PHP OOP ภาษาไทย</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="https://kit.fontawesome.com/5efd6bd50f.js" crossorigin="anonymous"></script>
+  </head>
+  <body data-bs-theme="dark">
+    <!-- Dynamic Navigation -->
+    <div id="nav-placeholder" data-base="../../"></div>
+
+    <main class="container py-5">
+      <!-- Header -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-10 text-center">
+          <span class="badge bg-pink-subtle-custom mb-3 px-3 py-2 rounded-pill fw-semibold">
+            <i class="fa-brands fa-php me-1"></i> บทที่ 5 : PHP Access Modifiers
+          </span>
+          <h1 class="display-5 fw-bolder mb-3">
+            ระดับการเข้าถึงข้อมูล (<span class="gradient-text">Access Modifiers</span>)
+          </h1>
+          <p class="lead text-secondary-emphasis">
+            การกำหนดสิทธิ์และความปลอดภัยในการเข้าถึง Properties และ Methods (Public, Protected, Private) เพื่อควบคุมความถูกต้องของข้อมูล (Encapsulation)
+          </p>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <!-- Card 1: 3 Modifiers -->
+          <div class="doc-card mb-4">
+            <h2 class="h4 fw-bold mb-3 text-pink"><i class="fa-solid fa-shield-halved me-2"></i>Access Modifiers ทั้ง 3 ระดับ</h2>
+            <p class="text-secondary">
+              ใน PHP คุณสามารถควบคุมได้ว่าใครบ้างที่สามารถอ่านหรือแก้ไขข้อมูลในคลาสได้ โดยใช้คีย์เวิร์ด 3 ตัวนี้:
+            </p>
+            <div class="row g-3 mt-2">
+              <div class="col-md-4">
+                <div class="p-3 bg-dark rounded border border-success h-100">
+                  <span class="badge bg-success mb-2">1. public (ค่าเริ่มต้น)</span>
+                  <p class="text-secondary small mb-0">
+                    สามารถเข้าถึงได้จาก<strong>ทุกที่</strong> ทั้งจากภายในคลาส ภายนอกคลาส หรือคลาสลูกที่สืบทอดไป
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 bg-dark rounded border border-warning h-100">
+                  <span class="badge bg-warning text-dark mb-2">2. protected</span>
+                  <p class="text-secondary small mb-0">
+                    สามารถเข้าถึงได้เฉพาะ<strong>ภายในคลาสของตัวเอง และคลาสลูกที่สืบทอด (Inheritance)</strong> ไปเท่านั้น (ภายนอกห้ามเรียก)
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 bg-dark rounded border border-danger h-100">
+                  <span class="badge bg-danger mb-2">3. private</span>
+                  <p class="text-secondary small mb-0">
+                    มีความลับสุดยอด! เข้าถึงได้เฉพาะ<strong>ภายในคลาสของตัวเองเท่านั้น</strong> แม้แต่คลาสลูกก็ไม่สามารถเข้าถึงได้
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Code Block -->
+          <div class="doc-card mb-5">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+              <h2 class="h5 fw-bold mb-0 text-white"><i class="fa-solid fa-code text-warning me-2"></i>ตัวอย่างการใช้งาน Access Modifiers</h2>
+              <span class="badge bg-dark border border-secondary text-light">PHP 8+</span>
+            </div>
+            <div class="code-window mb-0">
+              <div class="code-header">
+                <div class="window-dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
+                <span class="text-secondary small font-monospace">access_modifiers.php</span>
+                <button class="btn btn-sm btn-outline-secondary py-0" onclick="copyCode(this, 'code-5')"><i class="fa-regular fa-copy me-1"></i> Copy</button>
+              </div>
+              <div class="code-body" id="code-5">
+<pre class="mb-0"><code><span class="code-comment">&lt;?php</span>
+<span class="code-keyword">class</span> <span class="code-class">Fruit</span> {
+  <span class="code-keyword">public</span> <span class="code-var">$name</span>;       <span class="code-comment">// เข้าถึงได้ทั่วไป</span>
+  <span class="code-keyword">protected</span> <span class="code-var">$color</span>;   <span class="code-comment">// เข้าถึงได้ในคลาสนี้และคลาสลูก</span>
+  <span class="code-keyword">private</span> <span class="code-var">$weight</span>;    <span class="code-comment">// เข้าถึงได้เฉพาะในคลาสนี้เท่านั้น</span>
+
+  <span class="code-keyword">public</span> <span class="code-keyword">function</span> <span class="code-func">set_weight</span>(<span class="code-var">$weight</span>) {
+    <span class="code-comment">// เมธอด public สามารถเข้าถึง $weight ที่เป็น private ได้เพราะอยู่ในคลาสเดียวกัน</span>
+    <span class="code-keyword">$this</span>-&gt;<span class="code-var">weight</span> = <span class="code-var">$weight</span>;
+  }
+}
+
+<span class="code-var">$mango</span> = <span class="code-keyword">new</span> <span class="code-class">Fruit</span>();
+
+<span class="code-var">$mango</span>-&gt;<span class="code-var">name</span> = <span class="code-string">'Mango'</span>;    <span class="code-comment">// ✅ ทำงานได้ปกติ (Public)</span>
+<span class="code-comment">// $mango-&gt;color = 'Yellow';  // ❌ Fatal Error: Cannot access protected property</span>
+<span class="code-comment">// $mango-&gt;weight = '300g';   // ❌ Fatal Error: Cannot access private property</span>
+
+<span class="code-comment">// วิธีที่ถูกต้องในการตั้งค่า private คือผ่านเมธอด public ที่เตรียมไว้ (Encapsulation)</span>
+<span class="code-var">$mango</span>-&gt;<span class="code-func">set_weight</span>(<span class="code-string">'300g'</span>); <span class="code-comment">// ✅ ทำงานได้ปกติ</span>
+<span class="code-comment">?&gt;</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Buttons -->
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary-subtle">
+            <a href="../destructor/index.html" class="btn btn-outline-secondary px-4 py-2 rounded-pill">
+              <i class="fa-solid fa-arrow-left me-2"></i> บทที่ 4: Destructor
+            </a>
+            <a href="../inheritance/index.html" class="btn btn-primary px-4 py-2 rounded-pill fw-medium" style="background: var(--primary-gradient); border: none;">
+              บทที่ 6: Inheritance <i class="fa-solid fa-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="../../script.js"></script>
+  </body>
+</html>

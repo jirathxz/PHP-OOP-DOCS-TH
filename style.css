@@ -1,5 +1,176 @@
-@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fira+Code:wght@400;500;600&display=swap');
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+    --accent-blue: #3b82f6;
+    --accent-purple: #8b5cf6;
+    --accent-pink: #ec4899;
+    --accent-emerald: #10b981;
+    --accent-amber: #f59e0b;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.08);
+}
 
 body {
-    font-family: 'Prompt', sans-serif;
+    font-family: 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #0b0f19 !important;
+    color: #e2e8f0;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* Typography & Gradients */
+.gradient-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.hero-section {
+    padding: 3rem 0 2rem;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: -1;
+    filter: blur(40px);
+}
+
+/* Modern Cards & Glassmorphism */
+.doc-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 1.35rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    height: auto;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.doc-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.1);
+}
+
+.doc-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: transparent;
+    transition: background 0.3s ease;
+}
+
+.doc-card.card-encapsulation:hover::after { background: var(--accent-blue); }
+.doc-card.card-inheritance:hover::after { background: var(--accent-emerald); }
+.doc-card.card-polymorphism:hover::after { background: var(--accent-purple); }
+.doc-card.card-abstraction:hover::after { background: var(--accent-amber); }
+
+.icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.bg-blue-subtle-custom { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+.bg-emerald-subtle-custom { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+.bg-purple-subtle-custom { background: rgba(139, 92, 246, 0.15); color: #a78bfa; }
+.bg-amber-subtle-custom { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+.bg-pink-subtle-custom { background: rgba(236, 72, 153, 0.15); color: #f472b6; }
+
+/* Code Block Styling */
+.code-window {
+    background: #111827;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    margin: 1.5rem 0;
+}
+
+.code-header {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.window-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot-red { background: #ef4444; }
+.dot-yellow { background: #f59e0b; }
+.dot-green { background: #10b981; }
+
+.code-body {
+    padding: 1.5rem;
+    overflow-x: auto;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+}
+
+.code-keyword { color: #f472b6; font-weight: 600; }
+.code-class { color: #60a5fa; font-weight: 600; }
+.code-func { color: #34d399; }
+.code-string { color: #fbbf24; }
+.code-comment { color: #64748b; font-style: italic; }
+.code-var { color: #e2e8f0; }
+.code-number { color: #c084fc; }
+
+/* Comparison Box */
+.compare-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+/* Navbar */
+.navbar-custom {
+    background: rgba(11, 15, 25, 0.8) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Badges & Tags */
+.pillar-badge {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    border-radius: 50rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
 }

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>8. PHP Abstract Classes | คู่มือ PHP OOP ภาษาไทย</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="https://kit.fontawesome.com/5efd6bd50f.js" crossorigin="anonymous"></script>
+  </head>
+  <body data-bs-theme="dark">
+    <!-- Dynamic Navigation -->
+    <div id="nav-placeholder" data-base="../../"></div>
+
+    <main class="container py-5">
+      <!-- Header -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-10 text-center">
+          <span class="badge bg-purple-subtle-custom mb-3 px-3 py-2 rounded-pill fw-semibold">
+            <i class="fa-brands fa-php me-1"></i> บทที่ 8 : PHP Abstract Classes
+          </span>
+          <h1 class="display-5 fw-bolder mb-3">
+            คลาสนามธรรม (<span class="gradient-text">Abstract Classes</span>)
+          </h1>
+          <p class="lead text-secondary-emphasis">
+            แม่พิมพ์แบบร่างที่บังคับให้คลาสลูกต้องนำไปเขียนรายละเอียดการทำงานต่อ (Implement) ด้วยตัวเอง เพื่อสร้างมาตรฐานเดียวกัน
+          </p>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <!-- Card 1: What is Abstract Class -->
+          <div class="doc-card mb-4">
+            <h2 class="h4 fw-bold mb-3 text-info"><i class="fa-solid fa-layer-group me-2"></i>Abstract Class คืออะไร?</h2>
+            <p class="text-secondary">
+              คลาสนามธรรม (Abstract Class) คือคลาสที่มีคำว่า <code>abstract</code> นำหน้า โดยมีจุดประสงค์หลักเพื่อ<strong>เป็นแบบร่างให้คลาสลูกสืบทอดไปใช้งาน</strong> มีกฎสำคัญ 2 ข้อคือ:
+            </p>
+            <ul class="text-secondary mb-0">
+              <li>❌ <strong>ไม่สามารถสร้าง Object ตรงๆ ได้:</strong> คำสั่ง <code>new AbstractClass()</code> จะเกิด Error เสมอ ต้องสร้างผ่านคลาสลูกที่ <code>extends</code> ไปเท่านั้น</li>
+              <li>⚠️ <strong>Abstract Method บังคับเขียนต่อ:</strong> หากในคลาสมีเมธอดที่ขึ้นต้นด้วย <code>abstract</code> (จะไม่มีปีกกาไม่มีเนื้อหาในเมธอด) คลาสลูกที่สืบทอดไป <em>"บังคับต้องเขียนเนื้อหาของเมธอดนั้นให้ครบถ้วน"</em></li>
+            </ul>
+          </div>
+
+          <!-- Code Block -->
+          <div class="doc-card mb-5">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+              <h2 class="h5 fw-bold mb-0 text-white"><i class="fa-solid fa-code text-warning me-2"></i>ตัวอย่างการใช้งาน Abstract Class และ Method</h2>
+              <span class="badge bg-dark border border-secondary text-light">PHP 8+</span>
+            </div>
+            <div class="code-window mb-0">
+              <div class="code-header">
+                <div class="window-dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
+                <span class="text-secondary small font-monospace">abstract_classes.php</span>
+                <button class="btn btn-sm btn-outline-secondary py-0" onclick="copyCode(this, 'code-8')"><i class="fa-regular fa-copy me-1"></i> Copy</button>
+              </div>
+              <div class="code-body" id="code-8">
+<pre class="mb-0"><code><span class="code-comment">&lt;?php</span>
+<span class="code-comment">// 1. สร้าง Abstract Class (คลาสนามธรรมแม่แบบ)</span>
+<span class="code-keyword">abstract</span> <span class="code-keyword">class</span> <span class="code-class">Car</span> {
+  <span class="code-keyword">public</span> <span class="code-var">$name</span>;
+  <span class="code-keyword">public</span> <span class="code-keyword">function</span> <span class="code-func">__construct</span>(<span class="code-var">$name</span>) {
+    <span class="code-keyword">$this</span>-&gt;<span class="code-var">name</span> = <span class="code-var">$name</span>;
+  }
+
+  <span class="code-comment">// Abstract Method (มีแค่ชื่อ ห้ามมีปีกกาเนื้อหา บังคับคลาสลูกต้องเขียนเอง!)</span>
+  <span class="code-keyword">abstract</span> <span class="code-keyword">public</span> <span class="code-keyword">function</span> <span class="code-func">intro</span>(): <span class="code-var">string</span>;
+}
+
+<span class="code-comment">// 2. คลาสลูก Audi สืบทอดไป และ "ต้อง" เขียนเมธอด intro()</span>
+<span class="code-keyword">class</span> <span class="code-class">Audi</span> <span class="code-keyword">extends</span> <span class="code-class">Car</span> {
+  <span class="code-keyword">public</span> <span class="code-keyword">function</span> <span class="code-func">intro</span>(): <span class="code-var">string</span> {
+    <span class="code-keyword">return</span> <span class="code-string">"🚗 คุณภาพเยอรมัน! ฉันคือ <span class="code-var">{$this-&gt;name}</span>"</span>;
+  }
+}
+
+<span class="code-comment">// 3. คลาสลูก Volvo</span>
+<span class="code-keyword">class</span> <span class="code-class">Volvo</span> <span class="code-keyword">extends</span> <span class="code-class">Car</span> {
+  <span class="code-keyword">public</span> <span class="code-keyword">function</span> <span class="code-func">intro</span>(): <span class="code-var">string</span> {
+    <span class="code-keyword">return</span> <span class="code-string">"🛡️ ปลอดภัยอันดับหนึ่ง! ฉันคือ <span class="code-var">{$this-&gt;name}</span>"</span>;
+  }
+}
+
+<span class="code-comment">// $car = new Car("Test"); ❌ Error! ไม่สามารถสร้าง Object จาก Abstract Class ได้</span>
+<span class="code-var">$audi</span> = <span class="code-keyword">new</span> <span class="code-class">Audi</span>(<span class="code-string">"Audi R8"</span>);
+<span class="code-keyword">echo</span> <span class="code-var">$audi</span>-&gt;<span class="code-func">intro</span>(); <span class="code-comment">// ผลลัพธ์: 🚗 คุณภาพเยอรมัน! ฉันคือ Audi R8</span>
+<span class="code-keyword">echo</span> <span class="code-string">"&lt;br&gt;"</span>;
+
+<span class="code-var">$volvo</span> = <span class="code-keyword">new</span> <span class="code-class">Volvo</span>(<span class="code-string">"Volvo XC90"</span>);
+<span class="code-keyword">echo</span> <span class="code-var">$volvo</span>-&gt;<span class="code-func">intro</span>(); <span class="code-comment">// ผลลัพธ์: 🛡️ ปลอดภัยอันดับหนึ่ง! ฉันคือ Volvo XC90</span>
+<span class="code-comment">?&gt;</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Buttons -->
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary-subtle">
+            <a href="../constants/index.html" class="btn btn-outline-secondary px-4 py-2 rounded-pill">
+              <i class="fa-solid fa-arrow-left me-2"></i> บทที่ 7: Constants
+            </a>
+            <a href="../interfaces/index.html" class="btn btn-primary px-4 py-2 rounded-pill fw-medium" style="background: var(--primary-gradient); border: none;">
+              บทที่ 9: Interfaces <i class="fa-solid fa-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="../../script.js"></script>
+  </body>
+</html>

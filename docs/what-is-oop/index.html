@@ -1,15 +1,167 @@
 <!doctype html>
-<html lang="en">
+<html lang="th">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>OOP DOCS | TH</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>1. PHP What is OOP | คู่มือ PHP OOP ภาษาไทย</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../style.css" />
     <script src="https://kit.fontawesome.com/5efd6bd50f.js" crossorigin="anonymous"></script>
   </head>
-  <body>
-    <h1>OOP (Object-Oriented Programming) คืออะไร?</h1>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <body data-bs-theme="dark">
+    <!-- Dynamic Navigation -->
+    <div id="nav-placeholder" data-base="../../"></div>
+
+    <main class="container py-5">
+      <!-- Header -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-10 text-center">
+          <span class="badge bg-blue-subtle-custom mb-3 px-3 py-2 rounded-pill fw-semibold">
+            <i class="fa-brands fa-php me-1"></i> บทที่ 1 : PHP What is OOP
+          </span>
+          <h1 class="display-5 fw-bolder mb-3">
+            OOP ในภาษา <span class="gradient-text">PHP</span> คืออะไร?
+          </h1>
+          <p class="lead text-secondary-emphasis">
+            ทำความเข้าใจความแตกต่างระหว่างการเขียนโปรแกรมแบบขั้นตอน (Procedural) และเชิงวัตถุ (OOP) พร้อมข้อดีที่ทำให้โปรแกรมเมอร์ทั่วโลกเลือกใช้
+          </p>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <!-- Card 1: What is OOP -->
+          <div class="doc-card mb-4">
+            <h2 class="h4 fw-bold mb-3 text-info"><i class="fa-solid fa-circle-question me-2"></i>OOP คืออะไร?</h2>
+            <p class="text-secondary">
+              <strong>OOP (Object-Oriented Programming)</strong> คือแนวคิดการเขียนโปรแกรมที่มองทุกอย่างให้เป็น <em>"วัตถุ (Object)"</em> ซึ่งประกอบไปด้วย 2 ส่วนหลักคือ:
+            </p>
+            <ul class="text-secondary mb-0">
+              <li><strong>Properties (คุณสมบัติ/ตัวแปร):</strong> ข้อมูลที่เก็บไว้ในออบเจกต์ เช่น ชื่อ, สี, ราคา, น้ำหนัก</li>
+              <li><strong>Methods (พฤติกรรม/ฟังก์ชัน):</strong> สิ่งที่ออบเจกต์นั้นสามารถทำได้ เช่น คำนวณ, ขับเคลื่อน, บันทึกข้อมูล</li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Procedural vs OOP -->
+          <div class="doc-card mb-4">
+            <h2 class="h4 fw-bold mb-3 text-warning"><i class="fa-solid fa-scale-balanced me-2"></i>Procedural vs Object-Oriented</h2>
+            <div class="row g-4 mt-1">
+              <div class="col-md-6">
+                <div class="compare-box h-100 border-secondary">
+                  <h3 class="h6 fw-bold text-light">📝 Procedural Programming</h3>
+                  <p class="text-secondary small mb-0">
+                    เขียนโค้ดเป็นลำดับขั้นตอน คำสั่ง และฟังก์ชันเรียงต่อกันไป เหมาะกับโปรแกรมขนาดเล็ก แต่อาจจัดการและแก้ไขยากเมื่อระบบใหญ่ขึ้น
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="compare-box h-100 border-primary">
+                  <h3 class="h6 fw-bold text-primary">📦 Object-Oriented Programming</h3>
+                  <p class="text-secondary small mb-0">
+                    จัดกลุ่มข้อมูลและฟังก์ชันเข้าไว้ด้วยกันเป็น Object ทำให้โครงสร้างโค้ดชัดเจน ปลอดภัย และนำกลับมาใช้ซ้ำ (DRY) ได้อย่างมีประสิทธิภาพ
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Advantages -->
+          <div class="doc-card mb-4">
+            <h2 class="h4 fw-bold mb-3 text-success"><i class="fa-solid fa-thumbs-up me-2"></i>ข้อดีของ PHP OOP (อิงจาก W3Schools)</h2>
+            <div class="row g-3 text-secondary small">
+              <div class="col-md-6">
+                <div class="p-3 rounded bg-dark border border-secondary-subtle">
+                  <strong class="text-white d-block mb-1">⚡ รวดเร็วและง่ายต่อการใช้งาน</strong>
+                  OOP ช่วยให้การประมวลผลและการจัดโครงสร้างโค้ดเป็นระบบมากขึ้น ทำให้การพัฒนาโปรแกรมรวดเร็วขึ้น
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 rounded bg-dark border border-secondary-subtle">
+                  <strong class="text-white d-block mb-1">🏗️ โครงสร้างชัดเจน (Clear Structure)</strong>
+                  กำหนดขอบเขตและหน้าที่ของแต่ละคลาสอย่างชัดเจน ไม่ปะปนกัน (Modularity)
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 rounded bg-dark border border-secondary-subtle">
+                  <strong class="text-white d-block mb-1">♻️ หลักการ DRY (Don't Repeat Yourself)</strong>
+                  ช่วยให้คุณไม่ต้องเขียนโค้ดเดิมซ้ำๆ สามารถสืบทอด (Inheritance) และนำโค้ดกลับมาใช้ใหม่ได้ทันที
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 rounded bg-dark border border-secondary-subtle">
+                  <strong class="text-white d-block mb-1">🔧 บำรุงรักษาและขยายระบบง่าย</strong>
+                  เมื่อต้องการแก้บั๊กหรือเพิ่มฟีเจอร์ สามารถทำได้เฉพาะจุดโดยไม่ส่งผลกระทบให้โปรแกรมส่วนอื่นพัง
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Code Block -->
+          <div class="doc-card mb-5">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+              <h2 class="h5 fw-bold mb-0 text-white"><i class="fa-solid fa-code text-warning me-2"></i>ตัวอย่างแนวคิด Class และ Object ใน PHP</h2>
+              <span class="badge bg-dark border border-secondary text-light">PHP 8+</span>
+            </div>
+            <div class="code-window mb-0">
+              <div class="code-header">
+                <div class="window-dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
+                <span class="text-secondary small font-monospace">concept.php</span>
+                <button class="btn btn-sm btn-outline-secondary py-0" onclick="copyCode(this, 'code-1')"><i class="fa-regular fa-copy me-1"></i> Copy</button>
+              </div>
+              <div class="code-body" id="code-1">
+<pre class="mb-0"><code><span class="code-comment">&lt;?php</span>
+<span class="code-comment">// 1. สร้าง Class (แม่พิมพ์) ชื่อ Fruit</span>
+<span class="code-keyword">class</span> <span class="code-class">Fruit</span> {
+  <span class="code-comment">// Properties (คุณสมบัติ)</span>
+  <span class="code-keyword">public</span> <span class="code-var">$name</span>;
+  <span class="code-keyword">public</span> <span class="code-var">$color</span>;
+
+  <span class="code-comment">// Methods (พฤติกรรม/การทำงาน)</span>
+  <span class="code-keyword">function</span> <span class="code-func">set_name</span>(<span class="code-var">$name</span>) {
+    <span class="code-keyword">this</span>-&gt;<span class="code-var">name</span> = <span class="code-var">$name</span>;
+  }
+  <span class="code-keyword">function</span> <span class="code-func">get_name</span>() {
+    <span class="code-keyword">return</span> <span class="code-keyword">this</span>-&gt;<span class="code-var">name</span>;
+  }
+}
+
+<span class="code-comment">// 2. สร้าง Object (ผลงานจริง) จาก Class Fruit</span>
+<span class="code-var">$apple</span> = <span class="code-keyword">new</span> <span class="code-class">Fruit</span>();
+<span class="code-var">$banana</span> = <span class="code-keyword">new</span> <span class="code-class">Fruit</span>();
+
+<span class="code-comment">// กำหนดค่าและเรียกใช้งาน</span>
+<span class="code-var">$apple</span>-&gt;<span class="code-func">set_name</span>(<span class="code-string">'Apple'</span>);
+<span class="code-var">$banana</span>-&gt;<span class="code-func">set_name</span>(<span class="code-string">'Banana'</span>);
+
+<span class="code-keyword">echo</span> <span class="code-var">$apple</span>-&gt;<span class="code-func">get_name</span>();  <span class="code-comment">// ผลลัพธ์: Apple</span>
+<span class="code-keyword">echo</span> <span class="code-string">"&lt;br&gt;"</span>;
+<span class="code-keyword">echo</span> <span class="code-var">$banana</span>-&gt;<span class="code-func">get_name</span>(); <span class="code-comment">// ผลลัพธ์: Banana</span>
+<span class="code-comment">?&gt;</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Buttons -->
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary-subtle">
+            <a href="../../index.php" class="btn btn-outline-secondary px-4 py-2 rounded-pill">
+              <i class="fa-solid fa-arrow-left me-2"></i> กลับหน้าหลัก
+            </a>
+            <a href="../classes-object/index.html" class="btn btn-primary px-4 py-2 rounded-pill fw-medium" style="background: var(--primary-gradient); border: none;">
+              บทที่ 2: Classes / Objects <i class="fa-solid fa-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="../../script.js"></script>
   </body>
 </html>

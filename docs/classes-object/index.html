@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2. PHP Classes / Objects | คู่มือ PHP OOP ภาษาไทย</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="https://kit.fontawesome.com/5efd6bd50f.js" crossorigin="anonymous"></script>
+  </head>
+  <body data-bs-theme="dark">
+    <!-- Dynamic Navigation -->
+    <div id="nav-placeholder" data-base="../../"></div>
+
+    <main class="container py-5">
+      <!-- Header -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-10 text-center">
+          <span class="badge bg-emerald-subtle-custom mb-3 px-3 py-2 rounded-pill fw-semibold">
+            <i class="fa-brands fa-php me-1"></i> บทที่ 2 : PHP Classes / Objects
+          </span>
+          <h1 class="display-5 fw-bolder mb-3">
+            คลาสและออบเจกต์ (<span class="gradient-text">Classes / Objects</span>)
+          </h1>
+          <p class="lead text-secondary-emphasis">
+            เจาะลึกวิธีการสร้าง Class การประกาศ Object ด้วยคำสั่ง new การใช้ตัวแปร $this และตัวช่วยตรวจสอบประเภท instanceof
+          </p>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <!-- Card 1: What are Classes and Objects -->
+          <div class="doc-card mb-4">
+            <h2 class="h4 fw-bold mb-3 text-success"><i class="fa-solid fa-cubes me-2"></i>Class กับ Object ทำงานร่วมกันอย่างไร?</h2>
+            <p class="text-secondary">
+              ในภาษา PHP เราประกาศคลาสโดยใช้คีย์เวิร์ด <code>class</code> ตามด้วยชื่อคลาส โดยภายในคลาสจะบรรจุตัวแปร (เรียกว่า <strong>Properties</strong>) และฟังก์ชัน (เรียกว่า <strong>Methods</strong>)
+            </p>
+            <p class="text-secondary mb-0">
+              เมื่อเราต้องการนำคลาสนั้นมาสร้างเป็นตัวตนจริงในหน่วยความจำ เราจะใช้คีย์เวิร์ด <code>new</code> เพื่อสร้าง <strong>Object (หรือ Instance)</strong> ซึ่งแต่ละออบเจกต์จะทำงานอิสระจากกันอย่างสิ้นเชิง
+            </p>
+          </div>
+
+          <!-- Card 2: The $this keyword -->
+          <div class="doc-card mb-4">
+            <h2 class="h4 fw-bold mb-3 text-info"><i class="fa-solid fa-hand-point-right me-2"></i>คีย์เวิร์ด $this คืออะไร?</h2>
+            <p class="text-secondary mb-0">
+              คีย์เวิร์ด <code>$this</code> เป็นตัวแทนที่ใช้อ้างอิงถึง <strong>"ออบเจกต์ปัจจุบัน (Current Object)"</strong> ที่กำลังเรียกใช้งานเมธอดนั้นอยู่ เวลาเราต้องการเข้าถึง Property หรือ Method ภายในคลาสเดียวกัน เราจะต้องใช้ <code>$this-&gt;property_name</code> เสมอ (ข้อสังเกต: หลังเครื่องหมาย <code>-&gt;</code> จะไม่มีเครื่องหมาย $ หน้าชื่อตัวแปร)
+            </p>
+          </div>
+
+          <!-- Code Block -->
+          <div class="doc-card mb-4">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+              <h2 class="h5 fw-bold mb-0 text-white"><i class="fa-solid fa-code text-warning me-2"></i>ตัวอย่างการสร้าง Class และ Object ใน PHP</h2>
+              <span class="badge bg-dark border border-secondary text-light">PHP 8+</span>
+            </div>
+            <div class="code-window mb-0">
+              <div class="code-header">
+                <div class="window-dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
+                <span class="text-secondary small font-monospace">classes_objects.php</span>
+                <button class="btn btn-sm btn-outline-secondary py-0" onclick="copyCode(this, 'code-2')"><i class="fa-regular fa-copy me-1"></i> Copy</button>
+              </div>
+              <div class="code-body" id="code-2">
+<pre class="mb-0"><code><span class="code-comment">&lt;?php</span>
+<span class="code-keyword">class</span> <span class="code-class">Car</span> {
+  <span class="code-comment">// ประกาศ Properties</span>
+  <span class="code-keyword">public</span> <span class="code-var">$brand</span>;
+  <span class="code-keyword">public</span> <span class="code-var">$color</span>;
+
+  <span class="code-comment">// ประกาศ Methods โดยใช้ $this เพื่ออ้างอิงออบเจกต์ปัจจุบัน</span>
+  <span class="code-keyword">public</span> <span class="code-keyword">function</span> <span class="code-func">set_brand</span>(<span class="code-var">$brand</span>) {
+    <span class="code-keyword">$this</span>-&gt;<span class="code-var">brand</span> = <span class="code-var">$brand</span>;
+  }
+  
+  <span class="code-keyword">public</span> <span class="code-keyword">function</span> <span class="code-func">get_brand</span>() {
+    <span class="code-keyword">return</span> <span class="code-keyword">$this</span>-&gt;<span class="code-var">brand</span>;
+  }
+}
+
+<span class="code-comment">// สร้าง Object จากคลาส Car ด้วยคำสั่ง new</span>
+<span class="code-var">$myCar1</span> = <span class="code-keyword">new</span> <span class="code-class">Car</span>();
+<span class="code-var">$myCar2</span> = <span class="code-keyword">new</span> <span class="code-class">Car</span>();
+
+<span class="code-comment">// กำหนดค่าให้แต่ละออบเจกต์ (อิสระต่อกัน)</span>
+<span class="code-var">$myCar1</span>-&gt;<span class="code-func">set_brand</span>(<span class="code-string">"Toyota"</span>);
+<span class="code-var">$myCar2</span>-&gt;<span class="code-func">set_brand</span>(<span class="code-string">"Honda"</span>);
+
+<span class="code-keyword">echo</span> <span class="code-var">$myCar1</span>-&gt;<span class="code-func">get_brand</span>(); <span class="code-comment">// ผลลัพธ์: Toyota</span>
+<span class="code-keyword">echo</span> <span class="code-string">"&lt;br&gt;"</span>;
+<span class="code-keyword">echo</span> <span class="code-var">$myCar2</span>-&gt;<span class="code-func">get_brand</span>(); <span class="code-comment">// ผลลัพธ์: Honda</span>
+
+<span class="code-comment">// การตรวจสอบประเภทด้วย instanceof</span>
+<span class="code-var">var_dump</span>(<span class="code-var">$myCar1</span> <span class="code-keyword">instanceof</span> <span class="code-class">Car</span>); <span class="code-comment">// ผลลัพธ์: bool(true)</span>
+<span class="code-comment">?&gt;</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: instanceof -->
+          <div class="doc-card mb-5">
+            <h2 class="h5 fw-bold mb-2 text-warning"><i class="fa-solid fa-magnifying-glass me-2"></i>คีย์เวิร์ด instanceof</h2>
+            <p class="text-secondary small mb-0">
+              คุณสามารถใช้คำสั่ง <code>instanceof</code> ในการตรวจสอบว่าตัวแปร Object นั้นๆ ถูกสร้างมาจากคลาสที่ระบุหรือไม่ โดยจะคืนค่ากลับมาเป็น boolean (<code>true</code> หรือ <code>false</code>)
+            </p>
+          </div>
+
+          <!-- Navigation Buttons -->
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary-subtle">
+            <a href="../what-is-oop/index.html" class="btn btn-outline-secondary px-4 py-2 rounded-pill">
+              <i class="fa-solid fa-arrow-left me-2"></i> บทที่ 1: What is OOP
+            </a>
+            <a href="../constructor/index.html" class="btn btn-primary px-4 py-2 rounded-pill fw-medium" style="background: var(--primary-gradient); border: none;">
+              บทที่ 3: Constructor <i class="fa-solid fa-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="../../script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>4. PHP Destructor | คู่มือ PHP OOP ภาษาไทย</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="https://kit.fontawesome.com/5efd6bd50f.js" crossorigin="anonymous"></script>
+  </head>
+  <body data-bs-theme="dark">
+    <!-- Dynamic Navigation -->
+    <div id="nav-placeholder" data-base="../../"></div>
+
+    <main class="container py-5">
+      <!-- Header -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-10 text-center">
+          <span class="badge bg-amber-subtle-custom mb-3 px-3 py-2 rounded-pill fw-semibold">
+            <i class="fa-brands fa-php me-1"></i> บทที่ 4 : PHP Destructor
+          </span>
+          <h1 class="display-5 fw-bolder mb-3">
+            ตัวทำลายออบเจกต์ (<span class="gradient-text">PHP Destructor</span>)
+          </h1>
+          <p class="lead text-secondary-emphasis">
+            เมธอดพิเศษ __destruct() ที่จะทำงานอัตโนมัติก่อนที่ Object จะถูกทำลายหรือเมื่อจบการทำงานของสคริปต์
+          </p>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <!-- Card 1: What is Destructor -->
+          <div class="doc-card mb-4">
+            <h2 class="h4 fw-bold mb-3 text-warning"><i class="fa-solid fa-trash-can-arrow-up me-2"></i>Destructor คืออะไร?</h2>
+            <p class="text-secondary">
+              Destructor เป็นเมธอดพิเศษคู่ตรงข้ามกับ Constructor โดยใช้ชื่อว่า <code>__destruct()</code> (ขีดล่างสองตัวเช่นกัน)
+            </p>
+            <p class="text-secondary mb-0">
+              <strong>เมธอดนี้จะถูกเรียกทำงานโดยอัตโนมัติที่ส่วนท้ายสุดของสคริปต์ หรือเมื่อออบเจกต์นั้นถูกทำลายออกจากหน่วยความจำ</strong> มักใช้สำหรับงานทำความสะอาด (Cleanup) เช่น การปิดการเชื่อมต่อฐานข้อมูล (Close Database Connection), การบันทึกปูมการทำงาน (Logging) หรือลบไฟล์ชั่วคราว
+            </p>
+          </div>
+
+          <!-- Code Block -->
+          <div class="doc-card mb-5">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+              <h2 class="h5 fw-bold mb-0 text-white"><i class="fa-solid fa-code text-warning me-2"></i>ตัวอย่างการใช้ __destruct()</h2>
+              <span class="badge bg-dark border border-secondary text-light">PHP 8+</span>
+            </div>
+            <div class="code-window mb-0">
+              <div class="code-header">
+                <div class="window-dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
+                <span class="text-secondary small font-monospace">destructor.php</span>
+                <button class="btn btn-sm btn-outline-secondary py-0" onclick="copyCode(this, 'code-4')"><i class="fa-regular fa-copy me-1"></i> Copy</button>
+              </div>
+              <div class="code-body" id="code-4">
+<pre class="mb-0"><code><span class="code-comment">&lt;?php</span>
+<span class="code-keyword">class</span> <span class="code-class">Fruit</span> {
+  <span class="code-keyword">public</span> <span class="code-var">$name</span>;
+  <span class="code-keyword">public</span> <span class="code-var">$color</span>;
+
+  <span class="code-keyword">public</span> <span class="code-keyword">function</span> <span class="code-func">__construct</span>(<span class="code-var">$name</span>, <span class="code-var">$color</span>) {
+    <span class="code-keyword">$this</span>-&gt;<span class="code-var">name</span> = <span class="code-var">$name</span>;
+    <span class="code-keyword">$this</span>-&gt;<span class="code-var">color</span> = <span class="code-var">$color</span>;
+    <span class="code-keyword">echo</span> <span class="code-string">"✅ สร้างออบเจกต์: <span class="code-var">{$this-&gt;name}</span> สำเร็จ!&lt;br&gt;"</span>;
+  }
+
+  <span class="code-comment">// เมธอด Destructor ทำงานตอนจบสคริปต์หรือเมื่อออบเจกต์ถูกทำลาย</span>
+  <span class="code-keyword">public</span> <span class="code-keyword">function</span> <span class="code-func">__destruct</span>() {
+    <span class="code-keyword">echo</span> <span class="code-string">"💥 ทำลายออบเจกต์: ผลไม้ <span class="code-var">{$this-&gt;name}</span> (สี <span class="code-var">{$this-&gt;color}</span>) ถูกลบออกจากระบบแล้ว!&lt;br&gt;"</span>;
+  }
+}
+
+<span class="code-var">$apple</span> = <span class="code-keyword">new</span> <span class="code-class">Fruit</span>(<span class="code-string">"Apple"</span>, <span class="code-string">"Red"</span>);
+<span class="code-keyword">echo</span> <span class="code-string">"--- กำลังประมวลผลการทำงานอื่นๆ ในสคริปต์ ---&lt;br&gt;"</span>;
+
+<span class="code-comment">/* 
+ผลลัพธ์ที่ได้บนหน้าจอ:
+✅ สร้างออบเจกต์: Apple สำเร็จ!
+--- กำลังประมวลผลการทำงานอื่นๆ ในสคริปต์ ---
+💥 ทำลายออบเจกต์: ผลไม้ Apple (สี Red) ถูกลบออกจากระบบแล้ว!
+*/</span>
+<span class="code-comment">?&gt;</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Buttons -->
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary-subtle">
+            <a href="../constructor/index.html" class="btn btn-outline-secondary px-4 py-2 rounded-pill">
+              <i class="fa-solid fa-arrow-left me-2"></i> บทที่ 3: Constructor
+            </a>
+            <a href="../access-modifiers/index.html" class="btn btn-primary px-4 py-2 rounded-pill fw-medium" style="background: var(--primary-gradient); border: none;">
+              บทที่ 5: Access Modifiers <i class="fa-solid fa-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="../../script.js"></script>
+  </body>
+</html>
