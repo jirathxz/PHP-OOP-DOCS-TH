@@ -2,10 +2,448 @@
 <html lang="th">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="refresh" content="0; url=index.php" />
-    <title>Redirecting to PHP OOP DOCS...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>🐘 PHP OOP DOCS | คู่มือการเขียนโปรแกรมเชิงวัตถุภาษาไทย (TH)</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://kit.fontawesome.com/5efd6bd50f.js" crossorigin="anonymous"></script>
   </head>
-  <body style="background: #0b0f19; color: white; text-align: center; padding: 50px; font-family: sans-serif;">
-    <p>กำลังนำคุณไปยังหน้าหลัก <a href="index.php" style="color: #60a5fa;">index.php</a>...</p>
+  <body data-bs-theme="dark">
+    <!-- Dynamic Navigation -->
+    <div id="nav-placeholder" data-base="./"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <span class="badge bg-blue-subtle-custom mb-3 px-4 py-2 rounded-pill fw-semibold fs-6 shadow-sm">
+              <i class="fa-brands fa-php me-2"></i>W3Schools PHP OOP Reference (TH)
+            </span>
+            <h1 class="display-4 fw-bolder mb-4">
+              คู่มือการเขียนโปรแกรมเชิงวัตถุ <br class="d-none d-md-block" />
+              <span class="gradient-text">PHP OOP DOCS ฉบับภาษาไทย</span>
+            </h1>
+            <p class="lead text-secondary-emphasis mx-auto mb-5" style="max-width: 760px; line-height: 1.8;">
+              เรียนรู้หลักการ <strong>Object-Oriented Programming (OOP)</strong> ในภาษา PHP ตั้งแต่ระดับพื้นฐานไปจนถึงขั้นสูง อธิบายเนื้อหาครบถ้วนทั้ง <strong>14 หัวข้อหลัก</strong> พร้อมตัวอย่างโค้ดสไตล์ Modern UI ที่นำไปใช้จริงได้ทันที
+            </p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+              <a href="./docs/what-is-oop/index.html" class="btn btn-primary px-4 py-3 rounded-pill fw-semibold shadow-lg d-flex align-items-center gap-2" style="background: var(--primary-gradient); border: none;">
+                <i class="fa-solid fa-rocket"></i> เริ่มต้นเรียนรู้บทที่ 1
+              </a>
+              <a href="#topics-section" class="btn btn-outline-secondary px-4 py-3 rounded-pill fw-semibold text-white d-flex align-items-center gap-2">
+                <i class="fa-solid fa-book-open"></i> สารบัญ 14 บทเรียน
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container py-5">
+      <!-- 4 Pillars of OOP Section -->
+      <section class="mb-5 py-4">
+        <div class="text-center mb-5">
+          <span class="pillar-badge bg-emerald-subtle-custom">CORE CONCEPTS</span>
+          <h2 class="h3 fw-bold">4 เสาหลักของแนวคิดเชิงวัตถุ (The 4 Pillars of OOP)</h2>
+          <p class="text-secondary">หัวใจสำคัญ 4 ประการที่ทำให้โครงสร้างโปรแกรมมีประสิทธิภาพ เป็นระเบียบ และขยายต่อได้ง่าย</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Pillar 1: Encapsulation -->
+          <div class="col-md-6 col-lg-3">
+            <div class="doc-card card-encapsulation h-100 d-flex flex-column">
+              <div class="icon-box bg-blue-subtle-custom">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <h3 class="h5 fw-bold text-light mb-2">1. Encapsulation</h3>
+              <h4 class="h6 text-info mb-3">การห่อหุ้มข้อมูล</h4>
+              <p class="text-secondary small mb-0 flex-grow-1">
+                รวบรวมข้อมูลและพฤติกรรมไว้ในออบเจกต์ พร้อมใช้ Access Modifiers (<code class="text-light">public</code>, <code class="text-light">private</code>, <code class="text-light">protected</code>) ป้องกันการเข้าถึงและแก้ไขข้อมูลโดยไม่ได้รับอนุญาต
+              </p>
+            </div>
+          </div>
+
+          <!-- Pillar 2: Inheritance -->
+          <div class="col-md-6 col-lg-3">
+            <div class="doc-card card-inheritance h-100 d-flex flex-column">
+              <div class="icon-box bg-emerald-subtle-custom">
+                <i class="fa-solid fa-sitemap"></i>
+              </div>
+              <h3 class="h5 fw-bold text-light mb-2">2. Inheritance</h3>
+              <h4 class="h6 text-success mb-3">การสืบทอดคุณสมบัติ</h4>
+              <p class="text-secondary small mb-0 flex-grow-1">
+                ช่วยลดการเขียนโค้ดซ้ำ (DRY) โดยให้คลาสลูกสามารถรับเอาคุณสมบัติและเมธอดจากคลาสแม่ผ่านคำสั่ง <code class="text-light">extends</code> เพื่อขยายการทำงานต่อได้ทันที
+              </p>
+            </div>
+          </div>
+
+          <!-- Pillar 3: Polymorphism -->
+          <div class="col-md-6 col-lg-3">
+            <div class="doc-card card-polymorphism h-100 d-flex flex-column">
+              <div class="icon-box bg-purple-subtle-custom">
+                <i class="fa-solid fa-shapes"></i>
+              </div>
+              <h3 class="h5 fw-bold text-light mb-2">3. Polymorphism</h3>
+              <h4 class="h6 text-warning mb-3">พ้องรูป / การแปลงกาย</h4>
+              <p class="text-secondary small mb-0 flex-grow-1">
+                ความสามารถของออบเจกต์ต่างคลาสที่สามารถตอบสนองต่อชื่อเมธอดเดียวกันในรูปแบบที่แตกต่างกัน ผ่านการ Overriding หรือ Interface
+              </p>
+            </div>
+          </div>
+
+          <!-- Pillar 4: Abstraction -->
+          <div class="col-md-6 col-lg-3">
+            <div class="doc-card card-abstraction h-100 d-flex flex-column">
+              <div class="icon-box bg-amber-subtle-custom">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <h3 class="h5 fw-bold text-light mb-2">4. Abstraction</h3>
+              <h4 class="h6 text-danger mb-3">นามธรรม / ซ่อนความซับซ้อน</h4>
+              <p class="text-secondary small mb-0 flex-grow-1">
+                ซ่อนรายละเอียดการทำงานที่ซับซ้อนไว้เบื้องหลัง แสดงให้เห็นเฉพาะโครงสร้างหลักที่จำเป็นผ่าน <code class="text-light">abstract class</code> หรือ <code class="text-light">interface</code>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14 Topics Section -->
+      <section id="topics-section" class="py-5">
+        <div class="text-center mb-5">
+          <span class="badge bg-purple-subtle-custom mb-3 px-3 py-2 rounded-pill fw-semibold">TABLE OF CONTENTS</span>
+          <h2 class="display-6 fw-bold mb-3">สารบัญเนื้อหาทั้ง <span class="gradient-text">14 หัวข้อ</span></h2>
+          <p class="text-secondary">จัดลำดับการเรียนรู้จากระดับพื้นฐาน ไปจนถึงระดับสูง อิงจากมาตรฐาน W3Schools</p>
+        </div>
+
+        <!-- Level 1: Basic -->
+        <div class="mb-5">
+          <div class="d-flex align-items-center gap-2 mb-4 border-bottom border-secondary-subtle pb-2">
+            <i class="fa-solid fa-seedling text-warning fs-4"></i>
+            <h3 class="h4 fw-bold mb-0 text-warning">ระดับพื้นฐาน (Basic Level)</h3>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <a href="./docs/what-is-oop/index.html" class="text-decoration-none">
+                <div class="doc-card h-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge bg-warning text-dark mb-2">บทที่ 1</span>
+                    <h4 class="h5 fw-bold text-white mb-2">PHP What is OOP</h4>
+                    <p class="text-secondary small mb-0">ทำความเข้าใจแนวคิด OOP คืออะไร ทำไมต้องใช้ และเปรียบเทียบกับ Procedural</p>
+                  </div>
+                  <div class="mt-3 d-flex align-items-center text-info small fw-medium">
+                    อ่านบทเรียน <i class="fa-solid fa-arrow-right ms-2"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <a href="./docs/classes-object/index.html" class="text-decoration-none">
+                <div class="doc-card h-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge bg-warning text-dark mb-2">บทที่ 2</span>
+                    <h4 class="h5 fw-bold text-white mb-2">PHP Classes / Objects</h4>
+                    <p class="text-secondary small mb-0">การสร้าง Class (แม่พิมพ์), การประกาศ Object (new), และการใช้งานคำสั่ง <code class="text-light">$this</code></p>
+                  </div>
+                  <div class="mt-3 d-flex align-items-center text-info small fw-medium">
+                    อ่านบทเรียน <i class="fa-solid fa-arrow-right ms-2"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <a href="./docs/constructor/index.html" class="text-decoration-none">
+                <div class="doc-card h-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge bg-warning text-dark mb-2">บทที่ 3</span>
+                    <h4 class="h5 fw-bold text-white mb-2">PHP Constructor</h4>
+                    <p class="text-secondary small mb-0">เมธอดพิเศษ <code class="text-light">__construct()</code> ที่ทำงานทันทีอัตโนมัติเมื่อมีการสร้าง Object ใหม่</p>
+                  </div>
+                  <div class="mt-3 d-flex align-items-center text-info small fw-medium">
+                    อ่านบทเรียน <i class="fa-solid fa-arrow-right ms-2"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <a href="./docs/destructor/index.html" class="text-decoration-none">
+                <div class="doc-card h-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge bg-warning text-dark mb-2">บทที่ 4</span>
+                    <h4 class="h5 fw-bold text-white mb-2">PHP Destructor</h4>
+                    <p class="text-secondary small mb-0">เมธอดพิเศษ <code class="text-light">__destruct()</code> ที่ทำงานอัตโนมัติเมื่อสิ้นสุดการทำงานของสคริปต์หรือออบเจกต์ถูกลบ</p>
+                  </div>
+                  <div class="mt-3 d-flex align-items-center text-info small fw-medium">
+                    อ่านบทเรียน <i class="fa-solid fa-arrow-right ms-2"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <a href="./docs/access-modifiers/index.html" class="text-decoration-none">
+                <div class="doc-card h-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge bg-warning text-dark mb-2">บทที่ 5</span>
+                    <h4 class="h5 fw-bold text-white mb-2">PHP Access Modifiers</h4>
+                    <p class="text-secondary small mb-0">การกำหนดระดับสิทธิ์การเข้าถึงข้อมูลและเมธอด: <code class="text-light">public</code>, <code class="text-light">protected</code>, และ <code class="text-light">private</code></p>
+                  </div>
+                  <div class="mt-3 d-flex align-items-center text-info small fw-medium">
+                    อ่านบทเรียน <i class="fa-solid fa-arrow-right ms-2"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Level 2: Intermediate -->
+        <div class="mb-5">
+          <div class="d-flex align-items-center gap-2 mb-4 border-bottom border-secondary-subtle pb-2">
+            <i class="fa-solid fa-layer-group text-info fs-4"></i>
+            <h3 class="h4 fw-bold mb-0 text-info">ระดับกลาง (Intermediate Level)</h3>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <a href="./docs/inheritance/index.html" class="text-decoration-none">
+                <div class="doc-card h-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge bg-info text-dark mb-2">บทที่ 6</span>
+                    <h4 class="h5 fw-bold text-white mb-2">PHP Inheritance</h4>
+                    <p class="text-secondary small mb-0">การสืบทอดคุณสมบัติคลาสด้วย <code class="text-light">extends</code>, การ Overriding เมธอด, และคำสั่งป้องกัน <code class="text-light">final</code></p>
+                  </div>
+                  <div class="mt-3 d-flex align-items-center text-info small fw-medium">
+                    อ่านบทเรียน <i class="fa-solid fa-arrow-right ms-2"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <a href="./docs/constants/index.html" class="text-decoration-none">
+                <div class="doc-card h-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge bg-info text-dark mb-2">บทที่ 7</span>
+                    <h4 class="h5 fw-bold text-white mb-2">PHP Constants</h4>
+                    <p class="text-secondary small mb-0">การประกาศค่าคงที่ในคลาสด้วยคำสั่ง <code class="text-light">const</code> และวิธีการเรียกใช้งานผ่าน <code class="text-light">self::</code> และ <code class="text-light">::</code></p>
+                  </div>
+                  <div class="mt-3 d-flex align-items-center text-info small fw-medium">
+                    อ่านบทเรียน <i class="fa-solid fa-arrow-right ms-2"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <a href="./docs/abstract-classes/index.html" class="text-decoration-none">
+                <div class="doc-card h-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge bg-info text-dark mb-2">บทที่ 8</span>
+                    <h4 class="h5 fw-bold text-white mb-2">PHP Abstract Classes</h4>
+                    <p class="text-secondary small mb-0">คลาสนามธรรมที่เป็นแม่พิมพ์หลัก บังคับให้คลาสลูกที่รับช่วงต่อต้องนำเมธอดไปเขียนเนื้อหาการทำงาน</p>
+                  </div>
+                  <div class="mt-3 d-flex align-items-center text-info small fw-medium">
+                    อ่านบทเรียน <i class="fa-solid fa-arrow-right ms-2"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <a href="./docs/interfaces/index.html" class="text-decoration-none">
+                <div class="doc-card h-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge bg-info text-dark mb-2">บทที่ 9</span>
+                    <h4 class="h5 fw-bold text-white mb-2">PHP Interfaces</h4>
+                    <p class="text-secondary small mb-0">การกำหนดข้อตกลงและมาตรฐานให้คลาสด้วยคำสั่ง <code class="text-light">interface</code> และการเรียกใช้งานด้วย <code class="text-light">implements</code></p>
+                  </div>
+                  <div class="mt-3 d-flex align-items-center text-info small fw-medium">
+                    อ่านบทเรียน <i class="fa-solid fa-arrow-right ms-2"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <a href="./docs/traits/index.html" class="text-decoration-none">
+                <div class="doc-card h-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge bg-info text-dark mb-2">บทที่ 10</span>
+                    <h4 class="h5 fw-bold text-white mb-2">PHP Traits</h4>
+                    <p class="text-secondary small mb-0">ตัวช่วยแก้ข้อจำกัด Single Inheritance ของ PHP ทำให้สามารถแชร์ชุดเมธอดร่วมกันในหลายคลาสได้ด้วย <code class="text-light">use</code></p>
+                  </div>
+                  <div class="mt-3 d-flex align-items-center text-info small fw-medium">
+                    อ่านบทเรียน <i class="fa-solid fa-arrow-right ms-2"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Level 3: Advanced -->
+        <div class="mb-5">
+          <div class="d-flex align-items-center gap-2 mb-4 border-bottom border-secondary-subtle pb-2">
+            <i class="fa-solid fa-wand-magic-sparkles text-success fs-4"></i>
+            <h3 class="h4 fw-bold mb-0 text-success">ระดับสูง (Advanced Level)</h3>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <a href="./docs/static-methods/index.html" class="text-decoration-none">
+                <div class="doc-card h-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge bg-success mb-2">บทที่ 11</span>
+                    <h4 class="h5 fw-bold text-white mb-2">PHP Static Methods</h4>
+                    <p class="text-secondary small mb-0">เมธอดสถิตที่สามารถเรียกใช้ได้ทันทีจากชื่อคลาสผ่านตัวดำเนินการ <code class="text-light">::</code> โดยไม่ต้องสร้างออบเจกต์</p>
+                  </div>
+                  <div class="mt-3 d-flex align-items-center text-info small fw-medium">
+                    อ่านบทเรียน <i class="fa-solid fa-arrow-right ms-2"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <a href="./docs/static-properties/index.html" class="text-decoration-none">
+                <div class="doc-card h-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge bg-success mb-2">บทที่ 12</span>
+                    <h4 class="h5 fw-bold text-white mb-2">PHP Static Properties</h4>
+                    <p class="text-secondary small mb-0">คุณสมบัติสถิตที่เป็นค่ากลาง ใช้ร่วมกันในทุก Instance ของคลาส และการเข้าถึงด้วย <code class="text-light">self::</code></p>
+                  </div>
+                  <div class="mt-3 d-flex align-items-center text-info small fw-medium">
+                    อ่านบทเรียน <i class="fa-solid fa-arrow-right ms-2"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <a href="./docs/namespaces/index.html" class="text-decoration-none">
+                <div class="doc-card h-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge bg-success mb-2">บทที่ 13</span>
+                    <h4 class="h5 fw-bold text-white mb-2">PHP Namespaces</h4>
+                    <p class="text-secondary small mb-0">การจัดหมวดหมู่คลาส เปรียบเสมือนโฟลเดอร์ ป้องกันปัญหาชื่อคลาสหรือฟังก์ชันซ้ำกันในโปรเจกต์ขนาดใหญ่</p>
+                  </div>
+                  <div class="mt-3 d-flex align-items-center text-info small fw-medium">
+                    อ่านบทเรียน <i class="fa-solid fa-arrow-right ms-2"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <a href="./docs/iterables/index.html" class="text-decoration-none">
+                <div class="doc-card h-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge bg-success mb-2">บทที่ 14</span>
+                    <h4 class="h5 fw-bold text-white mb-2">PHP Iterables</h4>
+                    <p class="text-secondary small mb-0">ประเภทข้อมูล (<code class="text-light">iterable</code>) ที่สามารถนำมาวนลูปด้วยคำสั่ง <code class="text-light">foreach()</code> ได้ เช่น Array หรือ Object ที่ใช้ `Traversable`</p>
+                  </div>
+                  <div class="mt-3 d-flex align-items-center text-info small fw-medium">
+                    อ่านบทเรียน <i class="fa-solid fa-arrow-right ms-2"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Code Preview Section -->
+      <section class="py-4 mb-5">
+        <div class="doc-card">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-5">
+              <span class="badge bg-pink-subtle-custom mb-3 px-3 py-2 rounded-pill fw-semibold">QUICK PREVIEW</span>
+              <h3 class="h4 fw-bold text-white mb-3">ตัวอย่างโครงสร้าง PHP OOP</h3>
+              <p class="text-secondary">
+                สัมผัสความเรียบง่ายและเป็นระบบของการเขียนโปรแกรมเชิงวัตถุด้วย PHP 8+ คลาส <code class="text-info">Fruit</code> แสดงถึงการประกาศคุณสมบัติ, เมธอด, Constructor และการสร้างออบเจกต์เพื่อใช้งานจริง
+              </p>
+              <ul class="text-secondary small mb-4">
+                <li class="mb-2">✨ ใช้ <code class="text-light">__construct()</code> เพื่อกำหนดค่าตั้งต้นให้ออบเจกต์ทันที</li>
+                <li class="mb-2">🔒 ใช้ Access Modifier <code class="text-light">private</code> ป้องกันการแก้ไขตัวแปรโดยตรง</li>
+                <li>🚀 เรียกใช้เมธอดด้วยตัวดำเนินการ <code class="text-light">-&gt;</code></li>
+              </ul>
+              <a href="./docs/classes-object/index.html" class="btn btn-outline-light px-4 py-2 rounded-pill small">
+                ดูตัวอย่างเพิ่มเติมในบทที่ 2 <i class="fa-solid fa-arrow-right ms-2"></i>
+              </a>
+            </div>
+            <div class="col-lg-7">
+              <div class="code-window my-0">
+                <div class="code-header">
+                  <div class="window-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                  </div>
+                  <span class="text-secondary small"><i class="fa-brands fa-php me-1 text-info"></i> Fruit.php</span>
+                  <button class="btn btn-sm btn-outline-secondary py-0 px-2 rounded small" onclick="copyCode(this, 'sample-code')">
+                    <i class="fa-regular fa-copy me-1"></i> Copy
+                  </button>
+                </div>
+                <div class="code-body" id="sample-code">
+                  <pre class="mb-0"><code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// ประกาศคลาส (Class)</span>
+<span class="code-keyword">class</span> <span class="code-class">Fruit</span> {
+    <span class="code-comment">// Properties (คุณสมบัติ)</span>
+    <span class="code-keyword">private</span> <span class="code-var">$name</span>;
+    <span class="code-keyword">private</span> <span class="code-var">$color</span>;
+
+    <span class="code-comment">// Constructor (เมธอดทำงานอัตโนมัติตอนสร้างออบเจกต์)</span>
+    <span class="code-keyword">public function</span> <span class="code-func">__construct</span>(<span class="code-var">$name</span>, <span class="code-var">$color</span>) {
+        <span class="code-var">$this</span>-&gt;name = <span class="code-var">$name</span>;
+        <span class="code-var">$this</span>-&gt;color = <span class="code-var">$color</span>;
+    }
+
+    <span class="code-comment">// Methods (พฤติกรรม)</span>
+    <span class="code-keyword">public function</span> <span class="code-func">getInfo</span>() {
+        <span class="code-keyword">return</span> <span class="code-string">"ผลไม้: "</span> . <span class="code-var">$this</span>-&gt;name . <span class="code-string">" (สี"</span> . <span class="code-var">$this</span>-&gt;color . <span class="code-string">")"</span>;
+    }
+}
+
+<span class="code-comment">// การสร้าง Object จาก Class</span>
+<span class="code-var">$apple</span> = <span class="code-keyword">new</span> <span class="code-class">Fruit</span>(<span class="code-string">"แอปเปิ้ล"</span>, <span class="code-string">"แดง"</span>);
+<span class="code-var">$banana</span> = <span class="code-keyword">new</span> <span class="code-class">Fruit</span>(<span class="code-string">"กล้วย"</span>, <span class="code-string">"เหลือง"</span>);
+
+<span class="code-keyword">echo</span> <span class="code-var">$apple</span>-&gt;<span class="code-func">getInfo</span>();  <span class="code-comment">// ผลลัพธ์: ผลไม้: แอปเปิ้ล (สีแดง)</span>
+<span class="code-keyword">echo</span> <span class="code-var">$banana</span>-&gt;<span class="code-func">getInfo</span>(); <span class="code-comment">// ผลลัพธ์: ผลไม้: กล้วย (สีเหลือง)</span>
+<span class="code-keyword">?&gt;</span></code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 text-secondary border-top border-secondary-subtle mt-5">
+      <div class="container">
+        <p class="mb-1 fw-medium text-light">
+          <i class="fa-brands fa-php me-1 text-info"></i> PHP OOP DOCS | TH
+        </p>
+        <p class="small mb-0">
+          © 2026 PHP OOP DOCS TH | จัดทำเพื่อการศึกษาและแบ่งปันความรู้แด่ชุมชนนักพัฒนาชาวไทย 🇹🇭
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js"></script>
   </body>
 </html>
