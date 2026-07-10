@@ -126,5 +126,3 @@ OOP-DOCS-TH/
   <b>© 2026 PHP OOP DOCS TH</b> | จัดทำเพื่อการศึกษาและแบ่งปันความรู้แด่ชุมชนนักพัฒนาชาวไทย 🇹🇭<br>
   <small>Open-source under the MIT License.</small>
 </p>
-#   P H P - C R U I D - B a s i c  
- 
